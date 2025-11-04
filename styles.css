@@ -1,3 +1,15 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap');
+:root {
+    --primary-color: #299388;
+    --secondary-color: #ffc0cb;
+    --blanco: #ffffff;
+    --gris: #6e6e6e;
+    --brown: #762e2e;
+    --font-light: 300;
+    --font-regular: 400;
+    --font-bold: 700;
+}
+
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
 a, abbr, acronym, address, big, cite, code,
@@ -43,23 +55,23 @@ table {
 }
 
 /* mis estilos */
-:root {
-    --primary-color: #299388;
-    --secondary-color: #ffc0cb;
-    --blanco: #ffffff;
-    --gris: #6e6e6e;
-}
-
-* {
-    font-family: Arial, Helvetica, sans-serif !important;
+body {
+    font-family: "Lato", sans-serif;
+    font-weight: var(--font-regular);
+    font-style: normal;
 }
 
 header {
     display: flex;
-    justify-content: space-around;
+    gap: 10px;
+    justify-content: space-between;
     align-items: center;
     padding: 25px;
     font-size: 16px;
+}
+
+header h1 {
+    font-weight: var(--font-bold);
 }
 
 .desplegable {
@@ -67,6 +79,7 @@ header {
     color: var(--primary-color);
     text-decoration: none;
     font-size: 30px;
+    font-weight: var(--font-bold);
     cursor: pointer;
 }
 
@@ -80,7 +93,9 @@ h1 span {
 
 nav {
     display: flex;
-    gap: 20px;
+    gap: 15px;
+    flex-wrap: wrap;
+    justify-content: center;
 }
 
 nav a {
@@ -116,11 +131,10 @@ nav a:not(:nth-child(7)):after,.idioma:after {
     object-position: center;
 }
 
-.chat {
+.soporte {
     position: fixed;
     right: 2%;
     bottom: 2%;
-    width: 40px;
     padding: 10px;
     background-color: var(--secondary-color);
     border-radius: 90px;
@@ -137,6 +151,14 @@ nav a:not(:nth-child(7)):after,.idioma:after {
     color: var(--blanco)
 }
 
+.chat {
+    width: 40px;
+}
+
+.gift,.chat {
+    filter: invert(100%) sepia(100%) saturate(0%) hue-rotate(137deg) brightness(104%) contrast(105%);
+}
+
 .mensaje {
     position: absolute;
     bottom: 25px;
@@ -144,12 +166,14 @@ nav a:not(:nth-child(7)):after,.idioma:after {
     color: var(--blanco);
 }
 
-.mensaje h2 {
+.mensaje p {
     font-size: 15px;
+    font-weight: var(--font-bold);
 }
 
-.mensaje p {
+.mensaje h2 {
     font-size: 20px;
+    font-weight: var(--font-light);
     margin: 15px 0 15px 0;
 }
 
@@ -172,20 +196,20 @@ nav a:not(:nth-child(7)):after,.idioma:after {
 }
 
 main > p {
+    margin-top: 25px;
     padding: 5px;
     font-size: 30px;
+    font-weight: var(--font-light);
     color: var(--gris);
+    text-align: center;
 } 
 
-@media (max-width: 680px) {
+@media (max-width: 480px) {
     nav {
         display: none;
     }
     .desplegable {
         display: block;
-    }
-    .carrusel {
-        left: 20px;
     }
     main > p {
         text-align: center;
@@ -200,5 +224,24 @@ main > p {
         z-index: 5;
         flex-direction: column;
         background-color: var(--blanco);
+    }
+    .mensaje {
+        position: static;
+        background-color: var(--brown);
+        padding: 25px;
+    }
+    .degradado {
+        width: 100%;
+        height: 100px;
+        position: absolute;
+        bottom: 100px;
+        left: 0;
+        background: linear-gradient(180deg, rgba(118, 46, 46, 1) 0%, rgba(237, 221, 83, 0) 100%);
+    }
+    .carrusel {
+        left: 50px;
+    }
+    header {
+        justify-content: space-around;
     }
 }
